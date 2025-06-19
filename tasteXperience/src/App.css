@@ -1,0 +1,151 @@
+/* Global Reset */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
+    background-color: #274502;
+}
+
+/* Background */
+.fullscreen-background {
+  background-image: url('./assets/bg-food.png');
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  
+}
+
+/* Navbar Structure */
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  color: #E4E5E0;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Each section has equal flex space */
+.menu-section,
+.logo-section,
+.search-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Align hamburger left */
+.menu-section {
+  justify-content: flex-start;
+}
+
+/* Align logo center */
+.logo-section {
+  justify-content: center;
+}
+
+/* Align search bar right */
+.search-section {
+  justify-content: flex-end;
+}
+
+/* Logo */
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #E4E5E0;
+}
+
+/* Search bar */
+.search-bar {
+  width: 280px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  background-color: #E4E5E0;
+  color: #274502;
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+  background-color: #3a5f07;
+  color: #E4E5E0;
+  outline: none;
+  border: 2px solid #E4E5E0;
+}
+
+.search-bar::placeholder {
+  color: #274502;
+  opacity: 0.7;
+}
+
+/* Logo Section */
+.logo-section .logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #E4E5E0;
+}
+
+/* Search Section */
+.search-section .search-bar {
+  width: 300px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  background-color: #E4E5E0;
+  color: #274502;
+}
+
+.search-section .search-bar:focus {
+  background-color: #3a5f07;
+  color: #E4E5E0;
+  outline: none;
+  border: 2px solid #E4E5E0;
+}
+
+.search-section .search-bar::placeholder {
+  color: #274502;
+  opacity: 0.7;
+}
+
+/* Menu Section */
+.menu-section {
+  display: flex;
+  align-items: center;
+}
+
+/* Center Box */
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  text-align: center;
+}
+
+.tagline-box {
+  background-color: rgba(228, 229, 224, 0.85);
+  padding: 15px;
+  border-radius: 12px;
+  color: #274502;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-left: 330px;
+  margin-top: -70px;
+}
+
+.tagline-box h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
