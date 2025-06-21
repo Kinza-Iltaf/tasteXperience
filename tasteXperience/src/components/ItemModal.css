@@ -1,70 +1,141 @@
+/* Overlay */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.4);
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 999;
+  animation: fadeIn 0.4s ease;
 }
 
+/* Modal Box */
 .modal-box {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
+  background: #f5fff7;
+  border-radius: 20px;
   width: 90%;
-  max-width: 400px;
+  max-width: 500px;
   position: relative;
   color: #274502;
   text-align: center;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  animation: popIn 0.4s ease;
 }
 
+/* Close Button */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 14px;
-  font-size: 22px;
-  background: none;
+  top: -16px;
+  right: -16px;
+  background: linear-gradient(135deg, #a3e635, #65a30d);
+  color: white;
   border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
-  color: #274502;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.close-btn:hover {
+  transform: scale(1.1) rotate(90deg);
+  background: linear-gradient(135deg, #86efac, #4ade80);
 }
 
+/* Image Styling */
 .modal-image {
   width: 100%;
-  max-height: 180px;
+  max-height: 220px;
   object-fit: cover;
-  border-radius: 10px;
+  border-bottom: 4px solid #d4fc79;
 }
 
+/* Headings */
+.modal-box h2 {
+  font-size: 26px;
+  margin: 18px 0 10px;
+  color: #2d6a4f;
+}
+
+.modal-box p {
+  font-size: 16px;
+  padding: 0 20px;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+}
+
+/* Taste Button */
 .taste-btn {
-  background-color: #274502;
-  color: #E4E5E0;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 20px;
-  border-radius: 6px;
-  cursor: pointer;
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  color: #fff;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #bbf7d0;
 }
-
 .taste-btn:hover {
-  background-color: #3a5f07;
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #86efac, #16a34a);
 }
 
+/* Emoji Animation */
+.emoji-animation {
+  font-size: 40px;
+  animation: chew 0.8s infinite alternate;
+  margin-top: 20px;
+}
+@keyframes chew {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15) rotate(-5deg); }
+}
+
+/* Taste Message */
 .taste-message {
   margin-top: 20px;
+  background: #ecfdf5;
+  padding: 15px 20px;
+  border-radius: 14px;
+  color: #065f46;
   font-size: 14px;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.15);
+  animation: fadeInUp 0.6s ease;
 }
 
+/* Feedback Link */
 .feedback-link {
-  display: block;
+  display: inline-block;
   margin-top: 10px;
-  color: #274502;
+  color: #10b981;
   font-weight: bold;
   text-decoration: underline;
+  transition: color 0.2s;
+}
+.feedback-link:hover {
+  color: #047857;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }

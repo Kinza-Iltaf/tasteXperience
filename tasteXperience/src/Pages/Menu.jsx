@@ -1,8 +1,7 @@
 // src/pages/Menu.jsx
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Menu.css';
 import ItemModal from '../components/ItemModal';
-
 
 import periPeriImg from '../assets/Peri Peri.jpg';
 import CalzoneChunksImg from '../assets/Calzone-Chunks.jpeg';
@@ -11,8 +10,6 @@ import FlamingWingsImg from '../assets/Flaming Wings.png';
 import OvenBakedChickenWingsImg from '../assets/Oven-Baked Chicken Wings.jpg';
 import FajitaFajitaChickenPizzaImg from '../assets/FajitaFajita Chicken Pizza.jpg';
 import chickentikkaImg from '../assets/chicken-tikka.jpg';
-
-
 
 const menuItems = [
   {
@@ -27,7 +24,6 @@ const menuItems = [
     image: CalzoneChunksImg,
     desc: 'Freshly baked bread filled with the yummiest Cheese blend to satisfy your cravings.'
   },
-
   {
     id: 3,
     name: 'Cheese Sticks',
@@ -42,7 +38,7 @@ const menuItems = [
   },
   {
     id: 5,
-    name: 'Calzone Chunks',
+    name: 'Oven Baked Chicken Wings',
     image: OvenBakedChickenWingsImg,
     desc: '4 pcs Stuffed Calzone Chunks served with Sauce & Fries.'
   },
@@ -58,102 +54,43 @@ const menuItems = [
     image: FajitaFajitaChickenPizzaImg,
     desc: '4 pcs Behari Rolls stuffed with the yummiest mix served with sauce.'
   },
-//   {
-//     id: 8,
-//     name: 'Chicken Tikka',
-//     image: './assets/bg-food.png',
-//     desc: 'Tender chunks of Marinated Grilled Chicken with Savory Onion.'
-//   },
-//   {
-//     id: 9,
-//     name: 'Chicken Fajita',
-//     image:FajitaFajitaChickenPizzaImg,
-//     desc: 'An authentic taste of fajita marinated Chicken, Onion and Bell Peppers.'
-//   },
-//   {
-//     id: 10,
-//     name: 'Chicken Lover',
-//     image: './assets/bg-food.png',
-//     desc: 'Extreme quantity of Chicken and Onion with rich Mozzarella Cheese.'
-//   },
-//   {
-//     id: 11,
-//     name: 'Chicken Tandoori',
-//     image: './assets/bg-food.png',
-//     desc: 'Traditionally developed Tandoori Chicken with Onion, Olives, Jalapeno and Tomatoes.'
-//   },
-//   {
-//     id: 12,
-//     name: 'Hot n Spicy',
-//     image: './assets/bg-food.png',
-//     desc: 'Hot and Spicy Chicken Onion with Jalapeno.'
-//   },
-//   {
-//     id: 13,
-//     name: 'Vegetable Pizza',
-//     image: './assets/bg-food.png',
-//     desc: 'Vegetables with Pizza Sauce and Cheese.'
-//   },
-//   {
-//     id: 14,
-//     name: 'Euro Pizza',
-//     image: './assets/bg-food.png',
-//     desc: 'Specially Marinated Smoked Chicken with Bell Pepper, Olives and lots of Cheese.'
-//   },
-//   {
-//     id: 15,
-//     name: 'Chicken Supreme',
-//     image: './assets/bg-food.png',
-//     desc: 'Three Flavors of Chicken, Black Olives, Mushrooms, Bell Pepper and Cheese.'
-//   },
-//   {
-//     id: 16,
-//     name: 'Black Pepper Tikka',
-//     image: './assets/bg-food.png',
-//     desc: 'A Blend of Marinated Black Pepper Chicken, Onion and Bell Pepper.'
-//   },
-//   {
-//     id: 17,
-//     name: 'Sausage Pizza',
-//     image: './assets/bg-food.png',
-//     desc: 'Chicken Sausages, Pizza Sauce, and Cheese.'
-//   },
-//   {
-//     id: 18,
-//     name: 'Cheese Lover Pizza',
-//     image: './assets/bg-food.png',
-//     desc: 'Yummiest Blend of Cheese and Pizza Sauce.'
-//   },
-//   {
-//     id: 19,
-//     name: 'Chicken Pepperoni',
-//     image: './assets/bg-food.png',
-//     desc: 'Chicken Pepperoni, Pizza Sauce and Cheese.'
-//   },
-//   {
-//     id: 20,
-//     name: 'Chicken Mushroom',
-//     image: './assets/bg-food.png',
-//     desc: 'Grilled Chicken Tikka, Mushrooms, Onion and Tomatoes.'
-//   },
 ];
-
 
 function Menu() {
   const [selectedItem, setSelectedItem] = useState(null);
+  const sliderRef = useRef(null);
+
+  const scroll = (direction) => {
+    const scrollAmount = direction === 'left' ? -300 : 300;
+    sliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
 
   return (
     <div className="menu-container">
       <h1 className="menu-title">Explore the Menu</h1>
       <p className="menu-subtitle">Click an item to taste it virtually!</p>
 
-      <div className="menu-grid">
-        {menuItems.map(item => (
-          <div key={item.id} className="menu-card" onClick={() => setSelectedItem(item)}>
-            <img src={item.image} alt={item.name} className="menu-image" />
-            <h3>{item.name}</h3>
-          </div>
-        ))}
+      <div className="carousel-wrapper">
+        <button className="carousel-btn left" onClick={() => scroll('left')}>❮</button>
+
+        <div className="menu-slider no-scrollbar" ref={sliderRef}>
+          {menuItems.map(item => (
+            <div key={item.id} className="menu-flip-card">
+              <div className="menu-flip-inner">
+                <div className="menu-flip-front">
+                  <img src={item.image} alt={item.name} />
+                  <h3>{item.name}</h3>
+                </div>
+                <div className="menu-flip-back">
+                  <p>{item.desc}</p>
+                  <button onClick={() => setSelectedItem(item)}>Taste It</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button className="carousel-btn right" onClick={() => scroll('right')}>❯</button>
       </div>
 
       {selectedItem && (

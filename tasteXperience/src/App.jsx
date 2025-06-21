@@ -40,12 +40,18 @@ function App() {
             <div className="logo">TasteXperience</div>
           </div>
 
+
+          
+
           <div className="search-section">
             <input
               className="search-bar"
               type="text"
               placeholder="Search for items..."
             />
+
+
+
           </div>
         </header>
 
