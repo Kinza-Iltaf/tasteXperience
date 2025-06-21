@@ -1,0 +1,70 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  color: #274502;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #274502;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.taste-btn {
+  background-color: #274502;
+  color: #E4E5E0;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.taste-btn:hover {
+  background-color: #3a5f07;
+}
+
+.taste-message {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.feedback-link {
+  display: block;
+  margin-top: 10px;
+  color: #274502;
+  font-weight: bold;
+  text-decoration: underline;
+}

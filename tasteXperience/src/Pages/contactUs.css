@@ -1,0 +1,123 @@
+.contact-container {
+  background-color: #E4E5E0;
+  color: #274502;
+  padding: 60px 20px;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 40px;
+  color: #3a5f07;
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Form */
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 14px;
+  color: #274502;
+}
+
+.contact-form button {
+  background-color: #274502;
+  color: #E4E5E0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #3a5f07;
+}
+
+/* Info Panel */
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+  background-color: #f1f2ec;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.contact-info h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.contact-info p {
+  margin: 10px 0;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info i {
+  margin-right: 10px;
+  color: #3a5f07;
+}
+
+
+
+.contact-support {
+  background-color: #f7f8f3;
+  padding: 20px;
+  border-radius: 12px;
+  margin-left: 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: #274502;
+  max-width: 350px;
+}
+
+.contact-support h3,
+.contact-support h4 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.contact-support ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-support li {
+  margin-bottom: 8px;
+}
+

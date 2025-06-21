@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './HamburgerMenu.css';
 
+import { Link } from 'react-router-dom';
+
+
 function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
-  const hamburgerRef = useRef(null); // ← new ref for hamburger
+  const hamburgerRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(prev => !prev);
@@ -12,7 +15,6 @@ function HamburgerMenu() {
 
   useEffect(() => {
     function handleClickOutside(event) {
-      // If click is outside the sidebar AND not on the hamburger icon
       if (
         sidebarRef.current &&
         !sidebarRef.current.contains(event.target) &&
@@ -47,11 +49,13 @@ function HamburgerMenu() {
           <span className="close-btn" onClick={toggleMenu}>&times;</span>
           <h3>Menu</h3>
         </div>
+
         <nav className="menu-links">
-          <a href="#help">Help</a>
-          <a href="#contact">Contact Us</a>
-          <a href="#menu">Menu</a>
-          <a href="#feedback">Feedback</a>
+             <Link to="/help" onClick={toggleMenu}>Help</Link>
+        <Link to="/contact" onClick={toggleMenu}>Contact Us</Link>
+
+          <Link to="/menu" onClick={toggleMenu}>Menu</Link>
+        <Link to="/feedback" onClick={toggleMenu}>Feedback</Link>
         </nav>
       </div>
     </>

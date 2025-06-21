@@ -22,12 +22,28 @@ function Contact() {
           <button type="submit">Send Message</button>
         </form>
 
-        <div className="contact-info">
-          <h3>Get in Touch</h3>
-          <p><i className="fas fa-envelope"></i> support@tastexperience.com</p>
-          <p><i className="fas fa-phone"></i> +92 300 1234567</p>
-          <p><i className="fas fa-map-marker-alt"></i> Lahore, Pakistan</p>
-        </div>
+       <div className="contact-support">
+  <h3>Why Reach Out?</h3>
+  <p>
+    We’re here to assist with anything related to your TasteXperience.
+    Whether it’s an issue with a recent order, a suggestion, or partnership inquiries — we’re listening!
+  </p>
+
+  <h4>Topics We Can Help With:</h4>
+  <ul>
+    <li>🍽️ Food quality or feedback</li>
+    <li>📦 Order status & delivery questions</li>
+    <li>💬 Suggestions or complaints</li>
+    <li>🤝 Business collaborations</li>
+  </ul>
+
+  <h4>Response Time</h4>
+  <p>
+    We typically reply within <strong>24 hours</strong>.  
+    For urgent queries, please reach us via our live chat or call support.
+  </p>
+</div>
+
       </div>
     </div>
   );
