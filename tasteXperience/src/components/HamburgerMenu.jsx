@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './HamburgerMenu.css';
-
 import { Link } from 'react-router-dom';
-
 
 function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,24 +36,29 @@ function HamburgerMenu() {
 
   return (
     <>
-      {/* Hamburger icon */}
-      <div ref={hamburgerRef} className="hamburger-icon" onClick={toggleMenu}>
-        ☰
+      <div className="hamburger-container">
+        {/* Hamburger icon when closed */}
+        {!isOpen && (
+          <div ref={hamburgerRef} className="hamburger-icon" onClick={toggleMenu}>
+            ☰
+          </div>
+        )}
+
+  
       </div>
 
       {/* Sidebar menu */}
       <div ref={sidebarRef} className={`side-menu ${isOpen ? 'open' : ''}`}>
         <div className="menu-header">
           <span className="close-btn" onClick={toggleMenu}>&times;</span>
-          <h3>Menu</h3>
+        
         </div>
 
         <nav className="menu-links">
-             <Link to="/help" onClick={toggleMenu}>Help</Link>
-        <Link to="/contact" onClick={toggleMenu}>Contact Us</Link>
-
+          <Link to="/help" onClick={toggleMenu}>Help</Link>
+          <Link to="/contact" onClick={toggleMenu}>Contact Us</Link>
           <Link to="/menu" onClick={toggleMenu}>Menu</Link>
-        <Link to="/feedback" onClick={toggleMenu}>Feedback</Link>
+          <Link to="/feedback" onClick={toggleMenu}>Feedback</Link>
         </nav>
       </div>
     </>

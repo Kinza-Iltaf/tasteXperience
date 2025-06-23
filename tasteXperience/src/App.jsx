@@ -5,6 +5,8 @@ import './App.css';
 import Help from './Pages/Help';
 import Feedback from './Pages/Feedback';
 import Menu from './Pages/Menu';
+import headerVideo from './assets/header.mp4';
+
 
 
 
@@ -17,15 +19,25 @@ import Contact from './Pages/contactUs'; // Adjusted path if it's src/pages/Cont
 function Home() {
   return (
     <>
-      <main className="center-content">
-        <div className="tagline-box">
-          <h1>Taste Before You Buy</h1>
-          <p>Experience the flavor before the order!</p>
+      {/* Main Hero Video with Tagline */}
+      <div className="video-header">
+        <video autoPlay loop muted className="background-video">
+     <source src={headerVideo} type="video/mp4" />
+
+        </video>
+
+        <div className="video-overlay">
+          <div className="tagline-box">
+            <h1>Taste Your Food Virtually</h1>
+            <p>Step into a new world where you can taste before you buy powered by innovation and flavor!</p>
+          </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }
+
+
 
 function App() {
   return (
@@ -39,10 +51,6 @@ function App() {
           <div className="logo-section">
             <div className="logo">TasteXperience</div>
           </div>
-
-
-          
-
           <div className="search-section">
             <input
               className="search-bar"
@@ -54,7 +62,6 @@ function App() {
 
           </div>
         </header>
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
