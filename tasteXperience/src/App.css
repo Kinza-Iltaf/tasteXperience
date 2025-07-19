@@ -22,6 +22,7 @@ body, html {
 
 /* -------------------- Navbar -------------------- */
 .navbar {
+ 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,6 +65,7 @@ body, html {
 /* -------------------- Search Bar -------------------- */
 .search-bar {
   width: 280px;
+  height: 40px;
   padding: 8px 12px;
   border-radius: 6px;
   border: none;
@@ -99,19 +101,22 @@ body, html {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  padding-top: 80px;     /* ⬅ Pushes video below navbar */
-  margin-bottom: -5px;   /* ⬅ Adds space below the video */
+  padding-top: 80px;     
+  margin-bottom: -5px;
 }
 
-
 .background-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
   z-index: -2;
+  filter: none; /* Make sure no blur filter is applied */
+  transform: translateZ(0); /* Forces GPU rendering (helps with clarity sometimes) */
 }
 
 .video-overlay {
@@ -120,12 +125,13 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(15, 15, 15, 0.4);
+  background: rgba(15, 15, 15, 0.3); /* Optional: adjust for better visibility */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
 }
+
 
 /* -------------------- Tagline Box -------------------- */
 /* .tagline-box {
@@ -176,3 +182,68 @@ body, html {
   -webkit-backdrop-filter: blur(4px);
 }
 
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+  font-family: sans-serif;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 20px;
+  border: none;
+  border-radius: 25px 25px 0 0;
+  outline: none;
+  background: linear-gradient(90deg, #da6849bb 0%, #f9a828 100%);
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.search-bar::placeholder {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  margin-top: 0px; /* eliminate gap */
+   border: 3px solid #E95A34;
+}
+
+.search-suggestions ul {
+  margin: 0;
+  padding: 0;
+}
+
+.search-suggestions li {
+  list-style: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+  transition: background 0.2s ease-in-out;
+}
+
+.search-suggestions li:hover {
+  background-color: #f9f9f9;
+}
+
+.search-suggestions .no-result {
+  padding: 12px 16px;
+  font-style: italic;
+  color: #9b9999;
+ 
+}

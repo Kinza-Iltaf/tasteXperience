@@ -1,6 +1,6 @@
 .help-container {
-  background-color: #E4E5E0;
-  color: #274502;
+  background: linear-gradient(135deg, #fff5f0, #fffaf6);
+  color: #4a1f00;
   padding: 60px 20px;
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
@@ -10,11 +10,12 @@
 .help-title {
   font-size: 36px;
   margin-bottom: 10px;
+  color: #E95A34;
 }
 
 .help-intro {
   font-size: 16px;
-  color: #3a5f07;
+  color: #f96f0f;
   margin-bottom: 40px;
 }
 
@@ -28,24 +29,31 @@
 }
 
 .step {
-  background-color: #fff;
-  border-radius: 12px;
+  background-color: #fff8f4;
+  border-radius: 14px;
   padding: 20px;
   width: 240px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(233, 90, 52, 0.15);
   text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(249, 168, 40, 0.2);
 }
 
 .step-number {
-  background-color: #274502;
-  color: #E4E5E0;
-  font-size: 20px;
+  background: linear-gradient(135deg, #E95A34, #f9a828);
+  color: #fff;
+  font-size: 18px;
   font-weight: bold;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }

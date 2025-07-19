@@ -7,7 +7,6 @@ function Contact() {
     <div className="contact-container">
       <h1 className="contact-title">Contact Us</h1>
       <p className="contact-subtitle">We’d love to hear from you! Please fill out the form below.</p>
-
       <div className="contact-content">
         <form className="contact-form">
           <label>Name</label>

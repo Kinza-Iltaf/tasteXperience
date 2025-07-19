@@ -12,7 +12,7 @@ function HamburgerMenu() {
   };
 
   useEffect(() => {
-    function handleClickOutside(event) {
+    const handleClickOutside = (event) => {
       if (
         sidebarRef.current &&
         !sidebarRef.current.contains(event.target) &&
@@ -21,44 +21,38 @@ function HamburgerMenu() {
       ) {
         setIsOpen(false);
       }
-    }
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isOpen]);
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <>
-      <div className="hamburger-container">
-        {/* Hamburger icon when closed */}
-        {!isOpen && (
-          <div ref={hamburgerRef} className="hamburger-icon" onClick={toggleMenu}>
-            ☰
-          </div>
-        )}
+      {/* Hamburger Icon */}
+      {!isOpen && (
+        <div ref={hamburgerRef} className="hamburger-icon" onClick={toggleMenu}>
+          ☰
+        </div>
+      )}
 
-  
-      </div>
-
-      {/* Sidebar menu */}
+      {/* Sidebar Menu */}
       <div ref={sidebarRef} className={`side-menu ${isOpen ? 'open' : ''}`}>
         <div className="menu-header">
-          <span className="close-btn" onClick={toggleMenu}>&times;</span>
-        
+          <button className="close-btn" onClick={toggleMenu}>
+            <svg viewBox="0 0 24 24" className="close-icon">
+              <line x1="4" y1="4" x2="20" y2="20" />
+              <line x1="20" y1="4" x2="4" y2="20" />
+            </svg>
+          </button>
         </div>
 
         <nav className="menu-links">
-          <Link to="/help" onClick={toggleMenu}>Help</Link>
-          <Link to="/contact" onClick={toggleMenu}>Contact Us</Link>
+        <Link to="/" onClick={toggleMenu}>Home</Link>
           <Link to="/menu" onClick={toggleMenu}>Menu</Link>
+          <Link to="/contact" onClick={toggleMenu}>Contact Us</Link>
           <Link to="/feedback" onClick={toggleMenu}>Feedback</Link>
+          <Link to="/help" onClick={toggleMenu}>Help</Link>
         </nav>
       </div>
     </>

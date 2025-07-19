@@ -2,7 +2,6 @@
 import React, { useState, useRef } from 'react';
 import './Menu.css';
 import ItemModal from '../components/ItemModal';
-
 import periPeriImg from '../assets/Peri Peri.jpg';
 import CalzoneChunksImg from '../assets/Calzone-Chunks.jpeg';
 import CheeseSticks from '../assets/Cheese Sticks.jpg';
