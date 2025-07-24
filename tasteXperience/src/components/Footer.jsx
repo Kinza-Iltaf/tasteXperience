@@ -23,8 +23,6 @@ function Footer() {
     <li><Link to="/menu">Menu</Link></li>
     <li><Link to="/contact">Contact Us</Link></li>
     <li><Link to="/feedback">Feedback</Link></li>
-    <li><Link to="/privacy-policy">Privacy Policy</Link></li>
-    <li><Link to="/terms-and-conditions">Terms & Conditions</Link></li>
   </ul>
 </div>
 
